@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2 class="my-5">Sorsolás eredménye</h2>
+    <form action="#" method="post">
+        <ul>
+            {% for name in names %}
+                <li>{{ name }} <input type="text" name="{{ name }}" placeholder="Új név"></li>
+            {% endfor %}
+        </ul>
+        <button type="submit" class="btn btn-primary">Mentés</button>
+    </form>
+{% endblock content %}
+
