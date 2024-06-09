@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p>Verseny név: {{ tournament_name }}</p>
+    <p>Választott sportág: {{ chosen_sport }}</p>
+    <form action="{{ url_for('enter_results') }}" method="POST">
+        <h3>Eredmények:</h3>
+        {% for name in names %}
+            <div class="mb-3">
+                <label for="result_{{ loop.index0 }}">{{ name }} eredménye:</label>
+                <input type="text" class="form-control" id="result_{{ loop.index0 }}" name="results[]" required>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Eredmények mentése</button>
+    </form>
+{% endblock content %}

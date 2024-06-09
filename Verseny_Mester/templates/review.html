@@ -2,17 +2,20 @@
 
 {% block content %}
     <h1>{{ title }}</h1>
-    <p>Választott sportág: {{ chosen_sport }}</p>
-    <p>Választott formátum: {{ chosen_format }}</p>
-    <p>Megadott nevek:</p>
+    <h5>Verseny név: {{ tournament_name }}</h5>
+    <h5>Választott sportág: {{ chosen_sport }}</h5>
+    <h5>Választott formátum: {{ chosen_format }}</h5>
+    <h5>Megadott nevek:</p>
     <ul>
         {% for name in names %}
             <li>{{ name }}</li>
         {% endfor %}
     </ul>
-    <form action="{{ url_for('home') }}" method="GET">
-        <button type="submit" class="btn btn-primary">Kezdőlapra</button>
+    <form action="{{ url_for('enter_results') }}" method="GET">
+        <button type="submit" class="btn btn-primary">Eredmények felvétele</button>
     </form>
 {% endblock content %}
+
+
 
 

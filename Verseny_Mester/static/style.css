@@ -1,20 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
 body {
-    background-color: #97b1c0;
-}
+    font-family: 'Roboto Slab', serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url('banner.jpg');
+  }
+  
+  
+   .navbar {
+    background-color: #343a40;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
 
-.card {
-    background-color: #1a4158;
-    color: #2ef338;
-}
 
-.card-subtitle {
-    color: #97b1c0;
-}
+  .container {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
 
-.card-body p {
-    text-align: right;
-}
+  h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  .cimke {
+    color: white;
+  }
+  
+  .btn-primary {
+    background-color: orange;
+  }
 
-form {
-    width: 600px
-}
+  button {
+    margin: 40px 22px;
+  }

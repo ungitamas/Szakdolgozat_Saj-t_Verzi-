@@ -7,6 +7,12 @@ app.secret_key = 'your_secret_key'
 @app.route('/')
 @app.route('/home')
 def home():
+    session.pop('chosen_sport', None)
+    session.pop('formats', None)
+    session.pop('chosen_format', None)
+    session.pop('tournament_name', None)
+    session.pop('names', None)
+    
     return render_template('choose_sport.html', title='Sportágak', sports=data.sports)
 
 @app.route('/choosing_sport', methods=['POST'])
@@ -31,8 +37,15 @@ def choose_format():
 def choosing_format():
     chosen_format = request.form.get('format')
     session['chosen_format'] = chosen_format
-    session['names'] = []
-    return redirect(url_for('enter_name'))
+    return redirect(url_for('enter_tournament_name'))
+
+@app.route('/enter_tournament_name', methods=['GET', 'POST'])
+def enter_tournament_name():
+    if request.method == 'POST':
+        tournament_name = request.form.get('tournament_name')
+        session['tournament_name'] = tournament_name
+        return redirect(url_for('enter_name'))
+    return render_template('enter_tournament_name.html', title='Verseny név megadása')
 
 @app.route('/enter_name', methods=['GET', 'POST'])
 def enter_name():
@@ -52,9 +65,24 @@ def enter_name():
 def review():
     chosen_sport = session.get('chosen_sport', '')
     chosen_format = session.get('chosen_format', '')
+    tournament_name = session.get('tournament_name', '')
     names = session.get('names', [])
-    return render_template('review.html', title='Áttekintés', chosen_sport=chosen_sport, chosen_format=chosen_format, names=names)
+    return render_template('review.html', title='Áttekintés', chosen_sport=chosen_sport, chosen_format=chosen_format, tournament_name=tournament_name, names=names)
 
+@app.route('/enter_results', methods=['GET', 'POST'])
+def enter_results():
+    if request.method == 'POST':
+        return redirect(url_for('home'))
+    
+    names = session.get('names', [])
+    chosen_sport = session.get('chosen_sport', '')
+    tournament_name = session.get('tournament_name', '')
+    return render_template('enter_results.html', title='Eredmények felvétele', names=names, chosen_sport=chosen_sport, tournament_name=tournament_name)
+
+
+
+
+# Eddig
 
 
 @app.route('/contact')
