@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p>Választott sportág: {{ chosen_sport }}</p>
+    <p>Választott formátum: {{ chosen_format }}</p>
+    <p>Megadott nevek:</p>
+    <ul>
+        {% for name in names %}
+            <li>{{ name }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('home') }}" method="GET">
+        <button type="submit" class="btn btn-primary">Kezdőlapra</button>
+    </form>
+{% endblock content %}
+
+

@@ -1,7 +1,19 @@
-names_list = []
+sports = [
+    'Röplabda', 
+    'Kézilabda', 
+    'Kosárlabda', 
+    'Labdarúgás', 
+    'Úszás', 
+    'Atlétika'
+]
 
-def add_name(name):
-    names_list.append(name)
+formats_team = [
+    "Egyenes kieséses",
+    "Csoportkörös",
+    "Körmérkőzések"
+]
 
-def get_names():
-    return names_list
+formats_individual = [
+    "Időfutamos",
+    "Előfutamos"
+]
